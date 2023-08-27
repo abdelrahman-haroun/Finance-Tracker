@@ -9,7 +9,11 @@ const AddTransactionScreen = () => {
   const handleAddTransaction = () => {
     setTransactions([
       ...transactions,
-      { ...data, date: format(new Date(), "dd-MM-yyyy") },
+      {
+        ...data,
+        date: format(new Date(), "dd-MM-yyyy"),
+        id: transactions[transactions.length - 1].id + 1,
+      },
     ]);
   };
   const handleCategoryChange = (selectedCategory) => {
