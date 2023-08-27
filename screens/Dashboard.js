@@ -8,16 +8,18 @@ const DashboardScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Personal Finance Tracker</Text>
-      <View style={styles.balanceContainer}>
-        <Text style={styles.balanceLabel}>Total Balance</Text>
-        <Text style={styles.balanceAmount}>{total}</Text>
+      <View style={{ flex: 1, justifyContent: "center" }}>
+        <View style={styles.balanceContainer}>
+          <Text style={styles.balanceLabel}>Total Balance</Text>
+          <Text style={styles.balanceAmount}>{total}</Text>
+        </View>
+        <View style={styles.buttonContainer}>
+          <Button
+            title="Go to Transaction List"
+            onPress={() => navigation.navigate("TransactionList")}
+          />
+        </View>
       </View>
-      <Button
-        title="Go to Transaction List"
-        onPress={() => navigation.navigate("TransactionList")}
-      />
-
-      {/* Additional components for other financial data */}
     </View>
   );
 };
@@ -26,8 +28,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    justifyContent: "center",
-    alignItems: "center",
   },
   title: {
     fontSize: 24,
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#e0e0e0",
     padding: 20,
     borderRadius: 10,
+    marginBottom: 20,
   },
   balanceLabel: {
     fontSize: 18,
@@ -45,6 +46,11 @@ const styles = StyleSheet.create({
   balanceAmount: {
     fontSize: 24,
     fontWeight: "bold",
+  },
+  buttonContainer: {
+    justifyContent: "flex-end",
+    marginBottom: 20,
+    padding: 50,
   },
 });
 
